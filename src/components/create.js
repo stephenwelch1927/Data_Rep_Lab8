@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+import axios from 'axios';
 //Class created for Create
 export class Create extends React.Component {
     //Constructor 
@@ -40,6 +41,19 @@ export class Create extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: "+this.state.Title+ " "+this.state.Year+ " "+this.state.Poster);
+        const newMovie = {
+            Title:this.state.Title,
+            Year: this.state.Year,
+            Poster: this.state.Poster
+
+        }
+        axios.post('http://localhost:4000/api/movies',newMovie)
+        .then((res)=>{
+            console.log(res);
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
     }
     render() {
         return (

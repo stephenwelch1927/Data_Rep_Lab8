@@ -13,10 +13,10 @@ export class Read extends React.Component {
     //Use Component didMount to retrive data from JSON data url life cycle hook
     //The used arrow functions to retrive data if successful and also a catch for an error
     componentDidMount() {
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+        axios.get('http://localhost:4000/api/movies')//Update the url to updated movies
             .then(
                 (response) => {
-                    this.setState({ movies: response.data.Search })
+                    this.setState({ movies: response.data.movies })//Updated state to refer to movies objects
                 })
             .catch((error) => { console.log(error) }
             );
