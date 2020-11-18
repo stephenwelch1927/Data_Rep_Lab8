@@ -16,7 +16,7 @@ export class Read extends React.Component {
         axios.get('http://localhost:4000/api/movies')//Update the url to updated movies
             .then(
                 (response) => {
-                    this.setState({ movies: response.data.movies })//Updated state to refer to movies objects
+                    this.setState({ movies: response.data})//Updated state to refer to movies objects
                 })
             .catch((error) => { console.log(error) }
             );
